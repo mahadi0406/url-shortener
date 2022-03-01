@@ -15,6 +15,8 @@ use App\Http\Controllers\ShortenerController;
 */
 
 Route::get('/', [ShortenerController::class, 'create'])->name('create');
+Route::get('/{hash}', [ShortenerController::class, 'process'])->middleware(['ipblock'])->name('process');
+Route::post('shortlink', [ShortenerController::class, 'store'])->name('link.store');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
