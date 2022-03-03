@@ -9,7 +9,6 @@ class Visitor extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'short_link_id',
         'location',
@@ -19,10 +18,16 @@ class Visitor extends Model
         'os',
         'browser',
         'device',
-        'link',
+        'country'
     ];
 
     protected $casts = [
         'location' => 'object',
     ];
+
+
+    public function shortlink()
+    {
+        return $this->belongsTo(ShortLink::class, 'short_link_id');
+    }
 }

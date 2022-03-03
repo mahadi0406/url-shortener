@@ -26,7 +26,7 @@ class IpBlockListener
      * @return void
      */
     public function handle(TrackingVisitorEvent $event)
-    {
+    {  
         if(Cache::has(request()->ip())){
             Cache::increment(request()->ip());
         }else{

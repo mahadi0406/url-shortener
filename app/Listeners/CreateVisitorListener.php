@@ -32,7 +32,6 @@ class CreateVisitorListener
         $location = Location::get(request()->ip());
         $address = [
             'zip' => @$location->zip,
-            'country' => @$location->country,
             'city' => @$location->city,
         ];
         $agent = new Agent();
@@ -45,7 +44,7 @@ class CreateVisitorListener
             'os'           => $agent->platform(),
             'browser'      => $agent->browser(),
             'device'       => $agent->device(),
-            'link'         => url()->previous(),
+            'country'      => @$location->country,
         ]);
     }
 }

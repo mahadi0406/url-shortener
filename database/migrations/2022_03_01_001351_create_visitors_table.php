@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('os')->nullable();
             $table->string('browser')->nullable();
             $table->string('device')->nullable();
-            $table->string('link')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }
